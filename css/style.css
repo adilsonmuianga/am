@@ -830,9 +830,13 @@ font-size: 2.6rem;
     .home-content h1{
         font-size: 5rem;
     }
+
+    .home-sci{
+        margin-top: 10px;
+    }
 }
 
-@media (max-width: 300px), (max-height: 610px) {
+@media (max-width: 300px), (max-height: 704px) {
     .home {
         height: 100%;
         justify-content: space-between;
@@ -847,6 +851,10 @@ font-size: 2.6rem;
 
     .home-content h1 {
         font-size: 3rem; /* Fonte menor para telas muito pequenas */
+    }
+
+    .home-sci{
+        margin-top: 10px;
     }
 }
 
