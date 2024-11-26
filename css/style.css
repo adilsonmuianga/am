@@ -47,10 +47,15 @@ body{
 }
 
 .logo{
+    position: relative;
     font-size: 2.5rem;
     color: var(--text-color);
     font-weight: 600;
 
+}
+
+.navbar{
+    position: relative;
 }
 
 .navbar a{
@@ -65,6 +70,7 @@ body{
 }
 
 #menu-icon{
+    position: relative;
     font-size: 3.6rem;
     color: var(--text-color);
     cursor: pointer;
@@ -93,6 +99,8 @@ section{
 
 
 .home-content h1{
+    position: relative;
+    display: inline-block;
     font-size: 5.6rem;
     font-weight: 700;
     line-height: 1.3;
@@ -117,9 +125,13 @@ section{
     background-repeat: no-repeat;
     -webkit-background-clip: text;
     background-position: -33rem 0;
+}
+
+.home.show-animate .home-content .text-animate h3{
     animation: homeBgText 6s linear infinite;
     animation-delay: 2s;
 }
+
 
 .home-content .text-animate h3::before{
     content: '';
@@ -130,11 +142,15 @@ section{
     height: 100%;
     border-right: 2px solid var(--main-color);
     z-index: -1;
+}
+
+.home.show-animate .home-content .text-animate h3::before{
     animation: homeCursorText 6s linear infinite;
     animation-delay: 2s;
 }
 
 .home-content p{
+    position: relative;
    font-size: 3.6rem;
    margin: 2rem 0 4rem;
 
@@ -263,10 +279,6 @@ section{
     opacity: .8;
 } */
 
-
-
-
-
 .about{
     display: flex;
     justify-content: center;
@@ -278,9 +290,10 @@ section{
 }
 
 .heading{
+    position: relative;
     font-size: 5rem;
-     margin-bottom: 3rem;
-     text-align: center;
+    margin-bottom: 3rem;
+    text-align: center;
 }
 
 span{
@@ -324,10 +337,13 @@ span{
 }
 
 .about-content h3{
-font-size: 2.6rem;
+    position: relative;
+    display: inline-block;
+    font-size: 2.6rem;
 }
 
 .about-content p{
+    position: relative;
     background: var(--bg-color);
     border-radius: 10%;
     padding: .9rem 1.9rem;
@@ -368,11 +384,14 @@ font-size: 2.6rem;
 } */
 
 .education-column .title{
+    position: relative;
+    display: inline-block;
     font-size: 2.5rem;
     margin: 0 0 1.5rem 2rem;
 }
 
 .education-column .education-box{
+    position: relative;
     border-left: .2rem solid var(--main-color);
 }
 
@@ -442,6 +461,12 @@ font-size: 2.6rem;
     background: var(--second-bd-color);
 }
 
+.skills h2{
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .skills .skills-row{
     display: flex;
     flex-wrap: wrap;
@@ -453,8 +478,14 @@ font-size: 2.6rem;
 }
 
 .skill-column .title{
+    position: relative;
+    display: inline-block;
     font-size: 2.5rem;
     margin: 0 0 1.5rem;
+}
+
+.skill-column .skills-box{
+    position: relative;
 }
 
 .skills-box .skills-content{
@@ -552,10 +583,35 @@ font-size: 2.6rem;
     width: 30%;
 }
 
+
+/* Segundo */
+.skill-column:nth-child(2) .skills-content .progress:nth-child(1) .bar span{
+    width: 80%;
+}
+
+.skill-column:nth-child(2) .skills-content .progress:nth-child(2) .bar span{
+    width: 80%;
+}
+
+.skill-column:nth-child(2) .skills-content .progress:nth-child(3) .bar span{
+    width: 50%;
+}
+
+.skill-column:nth-child(2) .skills-content .progress:nth-child(4) .bar span{
+    width: 70%;
+}
+
 .contact{
+    height: 100vh;
     min-height: auto;
     padding-bottom: 7rem;
 
+}
+
+.contact h2{
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .contact form{
@@ -638,6 +694,11 @@ font-size: 2.6rem;
     background: var(--second-bd-color);
 }
 
+.footer-text,
+.footer-iconTop{
+    position: relative;
+}
+
 .footer-text p{
     font-size: 1.6rem;
 }
@@ -679,6 +740,57 @@ font-size: 2.6rem;
 .footer-iconTop a:hover i{
     color: var(--main-color);
 }
+
+/* ANIMATION RELOAD AND SCROLL  */
+
+.animate{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    z-index: 98;
+}
+
+/* .animate.home-img{
+    width: 50%;
+} */
+    
+
+.logo .animate,
+.navbar .animate,
+#menu-icon .animate,
+.home.show-animate .animate{
+    animation: showRight 1s ease forwards;
+    animation-delay: calc(.3s * var(--i));
+}
+
+.animate.scroll{
+    transition: 1s ease;
+    transition-delay: calc(.3s / var(--i));
+    animation: none;
+}
+
+section:nth-child(odd) .animate.scroll,
+.footer .animate.animate.scroll{
+    background: var(--second-bd-color);
+}
+ 
+.education .education-box .animate.scroll{
+    width: 105%;
+}
+
+.about.show-animate .animate.scroll,
+.education.show-animate .animate.scroll,
+.education.show-animate .education-box .animate.scroll,
+.skills.show-animate .animate.scroll,
+.contact.show-animate .animate.scroll,
+.footer.show-animate .animate.scroll
+{
+    transition-delay: calc(.3s * var(--i));
+    width: 0;
+}   
 
 @media(max-width: 1200px) {
     html{
@@ -893,5 +1005,11 @@ font-size: 2.6rem;
 @keyframes aboutSpinner{
     100%{
         transform: translate(-50%, -50%) rotate(300deg);
+    }
+}
+
+@keyframes showRight {
+    100%{
+        width: 0;
     }
 }
